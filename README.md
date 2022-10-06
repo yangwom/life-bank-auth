@@ -244,7 +244,7 @@ Relembrando🧠: Essas declarações vão lhe ajudar a futuramente criar regras 
 </details>
 
 <details>
-  <summary>Testes Unitários para Serviço Gerador de Token</summary><br />
+  <summary>Crie Testes Unitários para Serviço Gerador de Token</summary><br />
 
 Utilize a classe TestTokenGenerator.cs para os testes do serviço gerador de Token 
 
@@ -282,7 +282,7 @@ No controlador `HomeController`, adicionar a função `CreateAccountUntilFriday(
 </details>
 
 <details>
-  <summary>Criar Testes para Endpoint Anônimo </summary><br />
+  <summary>Crie Testes para Endpoint Anônimo </summary><br />
 
 Na classe `TestHomeController`, adicionar a função `TestMessageForEveryoneSuccess()`. 
 
@@ -309,7 +309,7 @@ No controlador `ClientController`, adicionar a função `PlataformWelcome()`, qu
 </details>
 
 <details>
-  <summary>Criar Testes para Endpoint com Autorização </summary><br />
+  <summary>Crie Testes para Endpoint com Autorização </summary><br />
 
 Na classe `TestClientController`, adicionar a função `TestPlataformWelcomeSuccess()`. 
 
@@ -332,7 +332,7 @@ Na classe `TestClientController`, adicionar a função `TestPlataformWelcomeSucc
 </details>
 
 <details>
-  <summary>Criar teste de Falha em função TestPlataformWelcomeFail()</summary><br />
+  <summary>Crie teste de Falha em função TestPlataformWelcomeFail()</summary><br />
 
 Na classe `TestClientController`, adicionar a função `TestPlataformWelcomeFail()`. 
 
@@ -371,7 +371,7 @@ Relembrando🧠: Para criação de `Policy` baseada em `Claims`, adicione a conf
 </details>
 
 <details>
-  <summary>Criar Testes para Endpoint com Autorização baseada em `Claims`</summary><br />
+  <summary>Crie Testes para Endpoint com Autorização baseada em `Claims`</summary><br />
 
 Na classe `TestClientController`, adicionar a função `TestNewPromoAlertSuccess()`. 
 
@@ -399,7 +399,7 @@ Na classe `TestClientController`, adicionar a função `TestNewPromoAlertSuccess
 </details>
 
 <details>
-  <summary>Criar teste de Falha em função TestNewPromoAlertFail()</summary><br />
+  <summary>Crie teste de Falha em função TestNewPromoAlertFail()</summary><br />
 
 Na classe `TestClientController`, adicionar a função `TestNewPromoAlertFail()`. 
 
