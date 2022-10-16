@@ -11,8 +11,12 @@ public class HomeController : ControllerBase
     /// Message function that does not need authorization
     /// </summary>
     /// <returns>Returns a message</returns>
+
+    [HttpGet]
+    [Route("MessageForEveryone")]
+    [AllowAnonymous]
     public ActionResult<string> CreateAccountUntilFriday()
     {
-        throw new NotImplementedException();
+        return "Crie sua conta na Like Bank até sexta-feira!";
     }
 }

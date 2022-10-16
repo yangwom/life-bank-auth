@@ -15,6 +15,8 @@ public class TestHomeController : IClassFixture<WebApplicationFactory<Program>>
     [Fact(DisplayName = "Teste para MessageForEveryone com Status Ok")]    
     public async Task TestMessageForEveryoneSuccess()
     {   
-        throw new NotImplementedException();
+        var client = _factory.CreateClient();
+        var response = await client.GetAsync("Home/MessageForEveryone");
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
     }
 }
