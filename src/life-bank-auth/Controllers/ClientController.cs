@@ -12,7 +12,7 @@ public class ClientController : ControllerBase
     /// </summary>
     /// <returns>Returns a message</returns>
     [HttpGet]
-    [Route("Client/PlataformWelcome")]
+    [Route("PlataformWelcome")]
     [Authorize]
     public ActionResult<string> PlataformWelcome()
     {
