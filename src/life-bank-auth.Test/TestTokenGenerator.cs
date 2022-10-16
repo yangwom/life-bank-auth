@@ -12,7 +12,16 @@ public class TestTokenGenerator
     [InlineData("Mayara", false, CurrencyEnum.Real)]
     public void TestTokenGeneratorSuccess(string name, bool isCompany, CurrencyEnum currency)
     {
-        throw new NotImplementedException();
+        Client client = new Client
+        {
+            Name = name,
+            IsCompany = isCompany,
+            Currency = currency,
+        };
+
+        var token = new TokenGenerator().Generate(client);
+
+        token.Should().NotBeNull();
     }
 
     /// <summary>
@@ -22,6 +31,14 @@ public class TestTokenGenerator
     [InlineData("Mayara", false, CurrencyEnum.Real)]
     public void TestTokenGeneratorKeysSuccess(string name, bool isCompany, CurrencyEnum currency)
     {
-        throw new NotImplementedException();
+        Client client = new Client
+        {
+            Name = name,
+            IsCompany = isCompany,
+            Currency = currency,
+        };
+        var token = new TokenGenerator().Generate(client);
+        var splited = token.Split(".");
+        splited.Length.Should().Be(3);
     }
 }

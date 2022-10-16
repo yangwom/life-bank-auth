@@ -5,7 +5,7 @@ using System.Net.Http.Headers;
 
 namespace LifeBankAuth.Test;
 
-public class TestClientController : LifeBankConfiguration, IClassFixture<WebApplicationFactory<Program>>
+public class TestClientController : IClassFixture<WebApplicationFactory<Program>>
 {   
     private readonly WebApplicationFactory<Program> _factory;
     private const string controllerName = "client";
@@ -38,7 +38,7 @@ public class TestClientController : LifeBankConfiguration, IClassFixture<WebAppl
         throw new NotImplementedException();
     }
 }
-public class TestClientController2 : LifeBankConfiguration, IClassFixture<WebApplicationFactory<Program>>
+public class TestClientController2 : IClassFixture<WebApplicationFactory<Program>>
 {   
     private readonly WebApplicationFactory<Program> _factory;
     private const string controllerName = "client";

@@ -41,8 +41,10 @@ app.UseHttpsRedirection();
 app.UseRouting();
 
 // Adicionar uso de autenticação
+app.UseAuthentication();
 
 // Adicionar uso de autorização
+app.UseAuthorization();
 
 app.UseCors(c => c.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 
