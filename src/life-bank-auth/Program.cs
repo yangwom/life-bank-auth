@@ -1,6 +1,7 @@
 using System.Text;
 using LifeBankAuth.Models;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using LifeBank.Constants;
 using Microsoft.IdentityModel.Tokens;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,9 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuer = false,
         ValidateAudience = false,
         ValidateIssuerSigningKey = true,
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("Coloque o seu segredo JWT aqui!"))
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(
+            TokenConstants.Secret
+        ))
     };
 });
 

@@ -30,9 +30,9 @@ public class TestClientController : IClassFixture<WebApplicationFactory<Program>
             IsCompany = isCompany,
             Currency = currency,
         };
-
-        var clientOk = _factory.CreateClient();
+        
         var token = new TokenGenerator().Generate(client);
+        var clientOk = _factory.CreateClient();
         clientOk.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
         var response = await clientOk.GetAsync("Client/PlataformWelcome");
         response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
@@ -90,11 +90,13 @@ public class TestClientController2 : IClassFixture<WebApplicationFactory<Program
     [InlineData("Paula", true, CurrencyEnum.Dolar)]
     public async Task TestNewPromoAlertFail(string name, bool isCompany, CurrencyEnum currency)
     {
-         Client instance = new Client {
+         Client instance = new Client 
+         {
             Name = name,
             IsCompany = isCompany,
             Currency = currency
         };
+
         var token = new TokenGenerator().Generate(instance);
         var client = _factory.CreateClient();
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
