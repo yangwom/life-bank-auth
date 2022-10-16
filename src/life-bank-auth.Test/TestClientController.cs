@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 namespace LifeBankAuth.Test;
 
 public class TestClientController : IClassFixture<WebApplicationFactory<Program>>
-{   
+{
     private readonly WebApplicationFactory<Program> _factory;
     private const string controllerName = "client";
 
@@ -24,7 +24,18 @@ public class TestClientController : IClassFixture<WebApplicationFactory<Program>
     [InlineData("Trybe", true, CurrencyEnum.Real)]
     public async Task TestPlataformWelcomeSuccess(string name, bool isCompany, CurrencyEnum currency)
     {
-        throw new NotImplementedException();
+        Client client = new Client
+        {
+            Name = name,
+            IsCompany = isCompany,
+            Currency = currency,
+        };
+
+        var clientOk = _factory.CreateClient();
+        var token = new TokenGenerator().Generate(client);
+        clientOk.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token);
+        var response = await clientOk.GetAsync("Client/PlataformWelcome");
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.OK);
     }
 
     [Trait("Category", "3 - Criar Endpoint Autorização")]
@@ -34,12 +45,12 @@ public class TestClientController : IClassFixture<WebApplicationFactory<Program>
     [InlineData("INVALIDTOKEN")]
 
     public async Task TestPlataformWelcomeFail(string invalidToken)
-    {   
+    {
         throw new NotImplementedException();
     }
 }
 public class TestClientController2 : IClassFixture<WebApplicationFactory<Program>>
-{   
+{
     private readonly WebApplicationFactory<Program> _factory;
     private const string controllerName = "client";
 

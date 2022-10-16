@@ -11,9 +11,12 @@ public class ClientController : ControllerBase
     /// Message function that does needs authorization
     /// </summary>
     /// <returns>Returns a message</returns>
+    [HttpGet]
+    [Route("Client/PlataformWelcome")]
+    [Authorize]
     public ActionResult<string> PlataformWelcome()
     {
-        throw new NotImplementedException();
+        return "Que ótimo ter você aqui novamente, sinta-se a vontade!";
     }
 
     /// <summary>
