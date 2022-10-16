@@ -46,7 +46,10 @@ public class TestClientController : IClassFixture<WebApplicationFactory<Program>
 
     public async Task TestPlataformWelcomeFail(string invalidToken)
     {
-        throw new NotImplementedException();
+        var client = _factory.CreateClient();
+        client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", invalidToken);
+        var response = await client.GetAsync("Client/PlataformWelcome");
+        response.StatusCode.Should().Be(System.Net.HttpStatusCode.Unauthorized);
     }
 }
 public class TestClientController2 : IClassFixture<WebApplicationFactory<Program>>
