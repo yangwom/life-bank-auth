@@ -23,8 +23,12 @@ public class ClientController : ControllerBase
     /// Message function that needs authorization claims based
     /// </summary>
     /// <returns>Returns a message</returns>
+
+    [HttpGet]
+    [Route("NewPromoAlert")]
+    [Authorize("NewPromo")]
     public ActionResult<string> NewPromoAlert()
     {
-        throw new NotImplementedException();
+        return "Aproveite a nova promoção da Life Bank agora mesmo!";
     }
 }

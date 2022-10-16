@@ -28,6 +28,13 @@ builder.Services.AddAuthentication(options =>
 
 // Adicionar POLICY CLAIMS BASED aqui!
 
+builder.Services.AddAuthorization(options => {
+    options.AddPolicy("NewPromo", policy => {
+        policy.RequireClaim("Currency", new string[]{CurrencyEnum.Real.ToString(), CurrencyEnum.Peso.ToString()});
+        policy.RequireClaim("ClientType", ClientTypeEnum.PessoaFisica.ToString());
+    });
+});
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
